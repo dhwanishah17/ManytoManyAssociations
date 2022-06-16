@@ -64,7 +64,9 @@ app.get("/select", (req, res) => {
 })
 
 
-app.use(express.json());
+app.use(express.json());    
+
+// many to many relation in same table
 Actor.belongsToMany(Actor,{ through: Movie,as: "to", foreignKey: "id" });
 Actor.belongsToMany(Actor, { through: Movie, as: "from", foreignKey: "id" });
 
